@@ -1,3 +1,11 @@
 using mpi ;
 using gcc : 11~c++17 : g++-11 : <cxxflags>"-std=c++17 -fpermissive" ;
 using gcc : 11~c++20 : g++-11 : <cxxflags>-std=c++20 ;
+
+import os ;
+
+local ARM_NONE_EABI_TOOLCHAIN = [ os.environ ARM_NONE_EABI_TOOLCHAIN ] ;
+
+using gcc : 11~arm_none_eabi_c++20 :
+$(ARM_NONE_EABI_TOOLCHAIN)/bin/arm-none-eabi-g++ :
+<cxxflags>-std=c++20 ;
